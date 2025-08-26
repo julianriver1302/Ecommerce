@@ -32,7 +32,7 @@ public class ProductoController {
 		return "productos/show";
 	}
 
-	@GetMapping("/vreate")
+	@GetMapping("/create")
 	public String create() {
 		return "productos/create";
 	}
@@ -70,9 +70,9 @@ public class ProductoController {
 
 	// metodo para eliminar con id un producto
 	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable  Integer id) {
+	public String delete(@PathVariable Integer id) {
 		productoservice.delete(id);
-		return "";
+		return "redirect:/productos";
 	}
 
 }
