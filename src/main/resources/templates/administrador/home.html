@@ -15,18 +15,28 @@
 			<h1>Panel de administrador</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+					<li class="breadcrumb-item"><a th:href="@{/administrador}">Home</a></li>
 					<li class="breadcrumb-item active">Administrador</li>
 				</ol>
 			</nav>
 		</div><!-- End Page Title -->
 
 		<section class="section dashboard">
-			<p>hola mundo
+			<div class="row aling-items-top">
+				<div class="col-lg-4" th:each="producto: ${productos}">
+					<div class="card">
+						<img th:src="@{/images/{img}(img=${producto.imagen})}" class="card-img-top"
+							th:alt="${producto.nombre}">
+						<div class="card-body">
+							<h5 class="car-title" th:text="${producto.nombre}"></h5>
+							<p class="card-text" th:text="${producto.descripcion}"></p>
+						</div>
+					</div>
 
-			</p>
+				</div>
 
-				
+			</div>
+
 		</section>
 
 	</main><!-- End #main -->
@@ -35,7 +45,7 @@
 	<div th:insert="~{administrador/template_admin.html::footer}"></div>
 	<!-- End Footer -->
 
-	
+
 
 	<!-- Vendor JS Files -->
 	<div th:insert="~{administrador/template_admin.html::jsFiles}"></div>
